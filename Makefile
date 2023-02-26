@@ -6,18 +6,18 @@
 #    By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 16:38:04 by kadjane           #+#    #+#              #
-#    Updated: 2023/02/23 16:56:49 by kadjane          ###   ########.fr        #
+#    Updated: 2023/02/25 23:56:22 by kadjane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = parser.c main.c get_next_line.c get_next_line_utils.c
+SRCS = parser.c main.c get_next_line.c get_next_line_utils.c ft_split.c
 
 NAME := cub3D
 
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 
-CFLAGS := -Wall -Wextra -Werror 
+CFLAGS := -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

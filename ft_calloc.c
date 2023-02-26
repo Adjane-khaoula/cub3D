@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/24 22:18:24 by kadjane          ###   ########.fr       */
+/*   Created: 2021/11/27 21:36:50 by kadjane           #+#    #+#             */
+/*   Updated: 2023/02/24 22:13:59 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PARSER_H
-# define PARSER_H
+#include "parser.h"
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
+void	*ft_calloc(size_t cnt, size_t size)
+{
+	char	*p;
 
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *line, char *buff);
-char	*ft_strdup(char *src);
-size_t	ft_strlen(const char *str);
-char	**ft_split(char const *s, char c);
-void	parse_texture(char *texture);
-
-# endif
+	p = (char *)malloc(cnt * size);
+	if (!p)
+		return (0);
+	ft_bzero(p, cnt * size);
+	return (p);
+}

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/24 22:18:24 by kadjane          ###   ########.fr       */
+/*   Created: 2021/08/12 08:16:31 by kadjane           #+#    #+#             */
+/*   Updated: 2023/02/26 01:49:46 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PARSER_H
-# define PARSER_H
+#include "parser.h"
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
 
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *line, char *buff);
-char	*ft_strdup(char *src);
-size_t	ft_strlen(const char *str);
-char	**ft_split(char const *s, char c);
-void	parse_texture(char *texture);
-
-# endif
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
