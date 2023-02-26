@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:14:09 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/26 00:16:37 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/26 19:22:04 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,43 +39,31 @@ int	lenword(char const *s, char c)
 	return (i);
 }
 
-char	*allocat(char const *s, char **tabstr, char c, int i)
+void	rempltab(char const *s, char **tabstr, char c)
 {
-	// int	j;
-	*(tabstr + i) = (char *)malloc(lenword(s, c) + 1);
-	// if (!tabstr)
-	// {
-	// 	printf ("************enter hear\n");
-	// 	j = 0;
-	// 	while (j++ < i)
-	// 		free(*(tabstr + j));
-	// 	free(tabstr);
-	// 	return (0);
-	// }
-	return (*(tabstr + i));
-}
-
-char	**rempltab(char const *s, char **tabstr, char c)
-{
-	int	l;
-	int	k;
+	int	j;
 	int	i;
-	// int	m;
-
+	int	len;
+//error hear
 	i = -1;
-	k = nbrword(s, c);
-	while (*s && ++i < k)
+	len = nbrword(s, c);
+	while (*s && ++i < len)
 	{
-		while (*s == c)
+		while (s && *s == c)
 			s++;
-		allocat(s, tabstr, c, i);
-		// m = lenword(s, c);
-		l = -1;
+		printf("*s == {%s}\n",s);
+		if (s && *s && *s != '\n')
+		{
+			*(tabstr + i) = malloc(lenword(s, c) + 1);
+			if (!(*(tabstr + i)))
+				return ;
+		}
+		j = -1;
 		while (*s && *s != c)
-			tabstr[i][++l] = *s++;
-		tabstr[i][++l] = '\0';
+			tabstr[i][++j] = *s++;
+		tabstr[i][++j] = '\0';
 	}
-	return (tabstr);
+	tabstr[++i] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
@@ -84,7 +72,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	tabstr = (char **)malloc((nbrword(s, c) + 1) * sizeof(char *));
+	tabstr = malloc((nbrword(s, c) + 1) * sizeof(char *));
 	if (!tabstr)
 		return (0);
 	rempltab(s, tabstr, c);

@@ -6,46 +6,33 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 14:48:46 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/23 18:55:04 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/26 15:35:00 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
-		return (0);
-	else
-	{
-		while (str[i])
-			i++;
-	}
+	while (str && str[i])
+		i++;
 	return (i);
 }
 
 char	*ft_strdup(char *src)
 {
-	int		l;
-	int		i;
 	char	*p;
 	char	*p2;
 
-	i = 0;
-	l = ft_strlen(src) + 1;
-	p = (char *)malloc(l);
+	p = (char *)malloc(ft_strlen(src) + 1);
 	if (!p)
 		return (NULL);
 	p2 = p;
-	while (src[i])
-	{
-		*p = src[i];
-		p++;
-		i++;
-	}
+	while (src && *src)
+		*p++ = *src++;
 	*p = '\0';
 	return (p2);
 }

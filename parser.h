@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/24 22:18:24 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:40:40 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,26 @@
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);
 char	*ft_strdup(char *src);
-size_t	ft_strlen(const char *str);
+int		ft_strlen(char *str);
 char	**ft_split(char const *s, char c);
-void	parse_texture(char *texture);
+int		ft_strcmp(const char *s1, const char *s2);
+char	**parse_texture(char *texture, char **identifier, char **tab_identifier);
+int		ft_atoi(const char	*str);
 
 # endif
+
+
+//         1111111111111111111111111
+//         1000000000110000000000001
+//         1011000001110000000000001
+//         1001000000000000000000001
+// 111111111011000001110000000000001
+// 100000000011000001110111111111111
+// 11110111111111011100000010001
+// 1111011111111011101010010001
+// 11000000110101011100000010001
+// 10000000000000001100000010001
+// 10000000000000001101010010001
+// 11000001110101011111011110N0111
+// 11110111 1110101 101111010001
+// 11111111 1111111 111111111111
