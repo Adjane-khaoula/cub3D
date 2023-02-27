@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/26 18:40:40 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/27 12:22:24 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,19 @@ char	*ft_strjoin(char *line, char *buff);
 char	*ft_strdup(char *src);
 int		ft_strlen(char *str);
 char	**ft_split(char const *s, char c);
-int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(char *s1, char *s2);
 char	**parse_texture(char *texture, char **identifier, char **tab_identifier);
 int		ft_atoi(const char	*str);
+int		len_tab(char **tab_identifier);
 
 # endif
 
+
+
+// NO ./path_to_the_north_texture 
+// SO ./path_to_the_south_texture 
+// WE ./path_to_the_west_texture
+// EA ./path_to_the_east_texture
 
 //         1111111111111111111111111
 //         1000000000110000000000001

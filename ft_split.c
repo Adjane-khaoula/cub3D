@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:14:09 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/26 19:22:04 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/27 12:47:47 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	nbrword(char const *s, char c)
 	int	i;
 
 	i = 0;
-	while (*s)
+	while (s && *s)
 	{
-		while (*s == c)
+		while (*s == c || *s == '\n')
 			s++;
-		if (*s)
+		if (s && *s)
 			i++;
-		while (*s && *s != c)
+		while (s && *s && *s != c)
 			s++;
 	}
 	return (i);
@@ -44,26 +44,31 @@ void	rempltab(char const *s, char **tabstr, char c)
 	int	j;
 	int	i;
 	int	len;
-//error hear
+
 	i = -1;
 	len = nbrword(s, c);
-	while (*s && ++i < len)
+	// printf("len == %d\n", len);
+	while (++i < len && *s && *s != '\n')
 	{
+		// printf("*s == %s\n", s);
 		while (s && *s == c)
 			s++;
-		printf("*s == {%s}\n",s);
-		if (s && *s && *s != '\n')
+		if (s && *s)
 		{
 			*(tabstr + i) = malloc(lenword(s, c) + 1);
 			if (!(*(tabstr + i)))
 				return ;
 		}
 		j = -1;
-		while (*s && *s != c)
+		while (*s && *s != c && *s != '\n')
 			tabstr[i][++j] = *s++;
 		tabstr[i][++j] = '\0';
+		// printf("tabstr[%d] == %s \n", i, tabstr[i]);
 	}
-	tabstr[++i] = NULL;
+	// printf("--------> i == %d\n", i);
+	tabstr[i] = NULL;
+	// printf("tabstr[] == %s \n", i, tabstr[i]);
+	
 }
 
 char	**ft_split(char const *s, char c)

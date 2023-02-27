@@ -6,7 +6,7 @@
 #    By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 16:38:04 by kadjane           #+#    #+#              #
-#    Updated: 2023/02/26 18:41:17 by kadjane          ###   ########.fr        #
+#    Updated: 2023/02/27 12:05:43 by kadjane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(addprefix $(OBJ_D)/,${SRCS:.c=.o})
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Imlx
+CFLAGS = -Wall -Wextra -Werror -Imlx #-fsanitize=address -g
 
 all : ${NAME}
 
@@ -30,7 +30,7 @@ $(OBJ_D)/%.o:  %.c | ${OBJ_D}
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 ${NAME} :${OBJS}
-	@$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
 	@echo "|  Compilation Done  |"
 
 ${OBJ_D} :

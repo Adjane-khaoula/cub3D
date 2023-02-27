@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:29:05 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/26 19:13:26 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/27 12:48:41 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"	
+#include "parser.h"
 
 int	len_tab(char **tab_identifier)
 {
@@ -98,7 +98,14 @@ void	check_Ceiling_Floor(char *line)
 		if (line[i] == ',')
 			j++;
 	}
+	// printf("****> j == %d \n", j);
+	// printf("****> j == {%s} \n", line);
 	tab_rgb = ft_split(line, ',');
+	// printf("tab_rgb == %d\n", len_tab(tab_rgb));
+	// printf("tab_rgb == {%s}\n", tab_rgb[0]);
+	// printf("tab_rgb == {%s}\n", tab_rgb[1]);
+	// printf("tab_rgb == {%s}\n", tab_rgb[2]);
+	// printf("tab_rgb == {%s}\n", tab_rgb[3]);
 	if (len_tab(tab_rgb) != 3 || j != 2)
 	{
 		printf("ERROR : color is incorrect\n");
@@ -114,10 +121,12 @@ char	**parse_texture(char *texture, char **identifier, char **tab_identifier)
 	int		i;
 
 	i = -1;
-	if (texture && *texture != '\n')
+	if (texture/* && *texture != '\n'*/)
 	{
 		line = ft_split(texture, ' ');
-		printf("len_line = %d\n", len_tab(line));
+		// printf("line in texture == line[0] = %s\n", line[0]);
+		// printf("line in texture == line[1] = %s\n", line[1]);
+		// printf("line in texture == line[2] = %s\n", line[2]);
 		if (len_tab(line) != 2)
 		{
 			printf("ERROR\n");

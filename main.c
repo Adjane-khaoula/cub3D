@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/26 14:54:29 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/27 12:49:15 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ int main (int ac, char **av)
 		{
 			free(*line);
 			*line = get_next_line(fd);
-			tab_identifier = parse_texture(*line, identifier, tab_identifier);
+			// printf("*line == %s \n", *line);
+			if(ft_strcmp(*line, "\n"))
+				tab_identifier = parse_texture(*line, identifier, tab_identifier);
 		}
 	}
 }
