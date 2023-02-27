@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_textures.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:29:05 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/27 12:48:41 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/02/27 17:39:45 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,15 +115,17 @@ void	check_Ceiling_Floor(char *line)
 		check_range_rgb(tab_rgb);
 }
 
-char	**parse_texture(char *texture, char **identifier, char **tab_identifier)
+// char	**parse_texture(char *texture, char **identifier, char **tab_identifier)
+void	parse_texture(t_data **data)
 {
 	char	**line;
 	int		i;
 
 	i = -1;
-	if (texture/* && *texture != '\n'*/)
+	// printf ("-----------------%s\n", *(*data)->line);
+	if (*(*data)->line/* && *texture != '\n'*/)
 	{
-		line = ft_split(texture, ' ');
+		line = ft_split(*(*data)->line, ' ');
 		// printf("line in texture == line[0] = %s\n", line[0]);
 		// printf("line in texture == line[1] = %s\n", line[1]);
 		// printf("line in texture == line[2] = %s\n", line[2]);
@@ -134,9 +136,9 @@ char	**parse_texture(char *texture, char **identifier, char **tab_identifier)
 		}
 		while (++i < 6)
 		{
-			if (!ft_strcmp(*line,identifier[i]))
+			if (!ft_strcmp(*line,((*data)->identifier)[i]))
 			{
-				tab_identifier = check_dup(tab_identifier, *line);
+				(*data)->tab_identifier = check_dup((*data)->tab_identifier, *line);
 				if (!ft_strcmp(*line,"F") || !ft_strcmp(*line,"C"))
 					check_Ceiling_Floor(*(line + 1));
 				break ;
@@ -148,5 +150,4 @@ char	**parse_texture(char *texture, char **identifier, char **tab_identifier)
 			exit (1);
 		}
 	}
-	return (tab_identifier);
 }

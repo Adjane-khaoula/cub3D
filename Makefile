@@ -6,15 +6,15 @@
 #    By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 16:38:04 by kadjane           #+#    #+#              #
-#    Updated: 2023/02/27 12:05:43 by kadjane          ###   ########.fr        #
+#    Updated: 2023/02/27 14:52:31 by kadjane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-SRCS = parser.c main.c get_next_line.c \
+SRCS = parser_textures.c main.c get_next_line.c \
 	get_next_line_utils.c ft_split.c ft_strcmp.c\
-	ft_atoi.c
+	ft_atoi.c parser_map.c
 
 OBJ_D = obj
 
@@ -22,7 +22,7 @@ OBJS = $(addprefix $(OBJ_D)/,${SRCS:.c=.o})
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Imlx #-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -Imlx
 
 all : ${NAME}
 
