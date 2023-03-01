@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:14:09 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/01 12:46:57 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/01 14:30:17 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	rempltab(char const *s, char **tabstr, char c)
 	i = -1;
 	len = nbrword(s, c);
 	// printf("len == %d\n", len);
-	while (++i < len && *s && *s != '\n')
+	while (++i < len && *s/* && *s != '\n'*/)
 	{
 		// printf("*s == %s\n", s);
 		while (s && *s == c)
@@ -60,7 +60,7 @@ void	rempltab(char const *s, char **tabstr, char c)
 				return ;
 		}
 		j = -1;
-		while (*s && *s != c && *s != '\n')
+		while (*s && *s != c /*&& *s != '\n'*/)
 			tabstr[i][++j] = *s++;
 		tabstr[i][++j] = '\0';
 		// printf("tabstr[%d] == %s \n", i, tabstr[i]);

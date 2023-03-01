@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/27 18:55:59 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/01 14:53:03 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	**ft_split(char const *s, char c);
 int		ft_strcmp(char *s1, char *s2);
 // char	**parse_texture(char *texture, char **identifier, char **tab_identifier);
 void	parse_texture(t_data **data);
+void	parse_map(char **map);
 int		ft_atoi(const char	*str);
 int		len_tab(char **tab_identifier);
 int		ft_isnum(int c);

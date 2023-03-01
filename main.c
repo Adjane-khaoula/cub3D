@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/01 12:45:49 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/01 14:32:43 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,10 @@ int main (int ac, char **av)
 			*(data->line) = get_next_line(data->fd);
 		}
 		data->map = ft_split(data->init_map, '\n');
-		printf("%s\n", (data->map)[1]);
-		while(*(data->map++))
-			printf("%s\n", *(data->map));
+		parse_map(data->map);
+		// printf("len tab == %d\n", len_tab(data->map));
+		// while(*(data->map++))
+			// printf("%s\n", *(data->map));
 		close(data->fd);
 	}
 }
