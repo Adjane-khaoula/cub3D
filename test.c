@@ -2,6 +2,9 @@
 
 int main ()
 {
-	char **line = ft_split("F 220,100,0", ' ');
-	printf("*******> %s\n", line[0]);
+	char *line = ft_strdup("adjane");
+	char *line_2 = ft_strdup("khawla");
+	line = ft_strjoin(line, line_2);
+	free (line_2);
+	printf("line == %s\n", line);
 }

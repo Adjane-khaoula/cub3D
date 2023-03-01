@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:14:09 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/27 12:47:47 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/01 12:46:57 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
+	// printf("%s\n",s);
 	tabstr = malloc((nbrword(s, c) + 1) * sizeof(char *));
 	if (!tabstr)
 		return (0);
