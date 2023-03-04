@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:16:31 by kadjane           #+#    #+#             */
-/*   Updated: 2023/02/27 19:15:06 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/04 17:12:29 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,27 @@ int	ft_isnum(int c)
 		return (1);
 	else
 		return (0);
+}
+
+void	remove_space(char **line)
+{
+	int		i;
+	int		j;
+	int		len;
+	char	*tmp;
+	char	*line_without_space;
+
+	i = 0;
+	j = 0;
+	tmp = *line;
+	while (tmp && tmp[ft_strlen(tmp) - (++i)] == ' ')
+		j++;
+	i = 0;
+	line_without_space = malloc(ft_strlen(tmp) - j + 1);
+	len = (ft_strlen(tmp) - j);
+	while (tmp && *tmp && i < len)
+		line_without_space[i++] = *tmp++;
+	line_without_space[i] = '\0';
+	free(*line);
+	*line = line_without_space;
 }
