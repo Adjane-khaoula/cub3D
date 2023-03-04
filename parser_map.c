@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:49:15 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 18:59:35 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:26:38 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,42 @@ void	check_surroundings_zero(char **map, int i, int j)
 	
 }
 
-void	parse_map(char **map)
+int	parse_map(char **map)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	int		nbr_player;
 
 	i = 0;
 	j = 0;
-	check_first_char(map[0]);
-	check_first_last_line(map[0]);
-	while (map[++i] && map[i + 1])
+	nbr_player = 0;
+	if (map && *map)
 	{
-		j = 0;
-		while (map[i][++j] == ' ')
-			;
-		check_first_char(map[i]);
-		remove_space(&map[i]);
-		while (map[i][++j])
-			check_surroundings_zero(map, i, j);
+		check_first_char(map[0]);
+		check_first_last_line(map[0]);
+		while (map[++i] && map[i + 1])
+		{
+			j = 0;
+			while (map[i][++j] == ' ')
+				;
+			check_first_char(map[i]);
+			remove_space(&map[i]);
+			while (map[i][++j])
+			{
+				if (valid_char(map[i][j]) && map[i][j] != '0' && map[i][j] != '1')
+					nbr_player++;
+				check_surroundings_zero(map, i, j);
+			}
+		}
+		check_first_last_line(map[i]);
+		if (nbr_player > 1)
+		{
+			printf("ERROR: map invalid \n");
+			exit(1);
+		}
 	}
-	check_first_last_line(map[i]);
-	}
-//new line in the end
-// nb of the texters
-// empty map
+	return (nbr_player);
+}
+
+//			C 255,30,0
+// nb of the textures

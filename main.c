@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 18:41:39 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:41:55 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,32 @@ char **fill_TabIdentifier()
 	return (identifier);
 }
 
+void	ft_free(char **map)
+{
+	while (map && *map)
+	{
+		free (*map);
+		*map = NULL;
+	}
+}
+
+int	is_whitespace(char c)
+{
+	if (c == 9 || (c > 10 && c <= 13) || c == ' ')
+		return (1);
+	return (0);
+}
+
 int main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		t_data *data;
-		char *tmp;
+		t_data	*data;
+		char	*tmp;
+		int		other_whitespace;
+		int		i;
 
+		other_whitespace = 0;
 		data = malloc(sizeof(t_data));
 		(data->line) = malloc(sizeof(char *));
 		*(data->line) = ft_strdup("");
@@ -51,33 +70,60 @@ int main(int ac, char **av)
 			free(*data->line);
 			(*data->line) = get_next_line(data->fd);
 			tmp = (*data->line);
-			if (data->line && *(data->line) && **(data->line) == ' ')
+			if (data->line && *(data->line) && is_whitespace(**(data->line)))
 			{
-				while (*tmp == ' ')
+				while (is_whitespace(*tmp))
+				{
+					if (*tmp != ' ')
+						other_whitespace++;
 					tmp++;
+				}
+				if (*tmp == '\n')
+				{
+					other_whitespace = 0;
+					tmp++;
+				}
+				// printf ("----> [%d]\n",other_whitespace);
 			}
-			if (ft_strcmp(*(data->line), "\n") && !ft_isnum(*tmp))
+			// printf ("----> [%s]\n",tmp);
+			if (ft_strcmp(*(data->line), "\n") && *tmp && !ft_isum(*tmp))
 				parse_texture(&data);
-			else if (ft_strcmp(*(data->line), "\n") && ft_isnum(*tmp))
-				break;
+			else if (ft_strcmp(*(data->line), "\n") && *tmp && ft_isum(*tmp) && !other_whitespace)
+				break ;
+			// printf ("{%s}\n", tmp);
 		}
+			// printf ("----> %s\n",*(data->line));
 		while (*(data->line))
 		{
 			data->init_map = ft_strjoin(data->init_map, *(data->line));
 			free(*(data->line));
 			*(data->line) = NULL;
 			*(data->line) = get_next_line(data->fd);
-			
-			// printf("%s\n", *(data->line));
-			if (*(data->line) && *(data->line)[0] == '\n')
+			if (!*(data->line) || (*(data->line) && *(data->line)[0] == '\n'))
 			{
-				printf("ERROR: map invalid \n");
-				exit(1);
+				data->map = ft_split(data->init_map, '\n');
+				i = parse_map(data->map);
+			}
+			if (i == 0 && (*(data->line) && *(data->line)[0] == '\n'))
+			{
+				ft_free(data->map);
+				free (data->init_map);
+				data->init_map = ft_strdup("");
+				while (*(data->line) && *(data->line)[0] == '\n')
+				{
+					printf("i == %d\n", i);
+					free(*(data->line));
+					*(data->line) = get_next_line(data->fd);
+				}
 			}
 		}
+		if (i == 0)
+		{
+			printf("ERROR: map invalid \n");
+			exit(1);
+		}
 		// printf ("----> [%s]\n", data->init_map);
-		data->map = ft_split(data->init_map, '\n');
-		parse_map(data->map);
+		// parse_map(data->map);
 		// printf("len tab == %d\n", len_tab(data->map));
 		// while(*(data->map++))
 		// 	printf("%s\n", *(data->map));

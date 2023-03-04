@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 08:16:31 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 17:12:29 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/04 20:44:30 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strcmp(char *s1, char *s2)
 		return (0);
 }
 
-int	ft_isnum(int c)
+int	ft_isum(int c)
 {
 	if ((c >= '0' && c <= '9'))
 		return (1);
