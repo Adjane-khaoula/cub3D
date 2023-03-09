@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 20:57:06 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 18:13:46 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_data
 	char	**tab_identifier;
 	char	*init_map;
 	char	**map;
+	char	**textures;
 } t_data;
 
 char	*get_next_line(int fd);
@@ -44,4 +45,10 @@ int		ft_atoi(const char	*str);
 int		len_tab(char **tab_identifier);
 int		ft_isum(int c);
 void	remove_space(char **line);
+int		is_whitespace(char c);
 # endif
+
+
+	// NO ./path_to_the_north_texture
+	// WHITSPACE between the maps
+	

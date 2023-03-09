@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:29:05 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/01 14:53:32 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 18:22:59 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,20 @@ void	check_Ceiling_Floor(char *line)
 void	parse_texture(t_data **data)
 {
 	char	**line;
+	char	*texture;
 	int		i;
 
 	i = -1;
-	// printf ("-----------------%s\n", *(*data)->line);
-	if (*(*data)->line/* && *texture != '\n'*/)
+	texture = *(*data)->line;
+	if (texture)
 	{
-		line = ft_split(*(*data)->line, ' ');
+		while (is_whitespace(*texture))
+		// {
+			texture++;
+			// printf ("-----------------%c\n", *texture);
+		// }
+		// printf("**********%s\n", texture);
+		line = ft_split(texture, ' ');
 		// printf("line in texture == line[0] = %s\n", line[0]);
 		// printf("line in texture == line[1] = %s\n", line[1]);
 		// printf("line in texture == line[2] = %s\n", line[2]);

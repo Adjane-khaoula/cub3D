@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 22:41:55 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 18:09:42 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ int main(int ac, char **av)
 		char	*tmp;
 		int		other_whitespace;
 		int		i;
+		int		j;
 
-		other_whitespace = 0;
+		j = 0;
 		data = malloc(sizeof(t_data));
 		(data->line) = malloc(sizeof(char *));
 		*(data->line) = ft_strdup("");
@@ -62,12 +63,14 @@ int main(int ac, char **av)
 		data->identifier = fill_TabIdentifier();
 		data->init_map = ft_strdup("");
 		data->map = malloc(sizeof(char *));
+		data->textures = malloc(sizeof(char *));
 		data->fd = open(av[1], O_RDONLY);
 		if (data->fd < 0)
 			return (0);
 		while (*(data->line))
 		{
 			free(*data->line);
+			other_whitespace = 0;
 			(*data->line) = get_next_line(data->fd);
 			tmp = (*data->line);
 			if (data->line && *(data->line) && is_whitespace(**(data->line)))
@@ -78,16 +81,19 @@ int main(int ac, char **av)
 						other_whitespace++;
 					tmp++;
 				}
-				if (*tmp == '\n')
-				{
+				if (*tmp++ == '\n')
+				// {
 					other_whitespace = 0;
-					tmp++;
-				}
-				// printf ("----> [%d]\n",other_whitespace);
+					// tmp++;
+				// }
 			}
+			printf ("÷----> [%d]\n",other_whitespace);
 			// printf ("----> [%s]\n",tmp);
 			if (ft_strcmp(*(data->line), "\n") && *tmp && !ft_isum(*tmp))
+			{
 				parse_texture(&data);
+				data->textures[j++] = ft_strdup(*data->line);
+			}
 			else if (ft_strcmp(*(data->line), "\n") && *tmp && ft_isum(*tmp) && !other_whitespace)
 				break ;
 			// printf ("{%s}\n", tmp);
