@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:49:15 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/04 22:26:38 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 22:58:12 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,3 @@ int	parse_map(char **map)
 	}
 	return (nbr_player);
 }
-
-//			C 255,30,0
-// nb of the textures

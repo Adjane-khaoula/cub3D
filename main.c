@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/09 19:03:05 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 23:14:28 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_whitespace(char c)
 	return (0);
 }
 
-int	main(int ac,char **av)
+int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
@@ -82,23 +82,24 @@ int	main(int ac,char **av)
 					tmp++;
 				}
 				if (*tmp++ == '\n')
-				// {
 					other_whitespace = 0;
-					// tmp++;
-				// }
 			}
-			printf ("÷----> [%d]\n",other_whitespace);
-			// printf ("----> [%s]\n",tmp);
 			if (ft_strcmp(*(data->line), "\n") && *tmp && !ft_isum(*tmp))
 			{
 				parse_texture(&data);
 				data->textures[j++] = ft_strdup(*data->line);
 			}
 			else if (ft_strcmp(*(data->line), "\n") && *tmp && ft_isum(*tmp) && !other_whitespace)
+			{
+				data->textures[j] = NULL;
 				break ;
-			// printf ("{%s}\n", tmp);
+			}
 		}
-			// printf ("----> %s\n",*(data->line));
+		if (len_tab(data->textures) != 6)
+		{
+			printf("Number of textures not correct\n");
+			exit(1);
+		}
 		while (*(data->line))
 		{
 			data->init_map = ft_strjoin(data->init_map, *(data->line));
@@ -110,6 +111,7 @@ int	main(int ac,char **av)
 				data->map = ft_split(data->init_map, '\n');
 				i = parse_map(data->map);
 			}
+			// printf ("i == %d\n", i);
 			if (i == 0 && (*(data->line) && *(data->line)[0] == '\n'))
 			{
 				ft_free(data->map);
@@ -123,12 +125,12 @@ int	main(int ac,char **av)
 				}
 			}
 		}
+		printf ("----> [%s]\n", data->init_map);
 		if (i == 0)
 		{
 			printf("ERROR: map invalid \n");
 			exit(1);
 		}
-		// printf ("----> [%s]\n", data->init_map);
 		// parse_map(data->map);
 		// printf("len tab == %d\n", len_tab(data->map));
 		// while(*(data->map++))
