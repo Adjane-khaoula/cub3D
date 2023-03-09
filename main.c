@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/09 18:09:42 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 19:03:05 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	is_whitespace(char c)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac,char **av)
 {
 	if (ac == 2)
 	{

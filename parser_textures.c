@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:29:05 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/09 18:22:59 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 19:41:50 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,10 @@ void	parse_texture(t_data **data)
 			// printf ("-----------------%c\n", *texture);
 		// }
 		// printf("**********%s\n", texture);
-		line = ft_split(texture, ' ');
-		// printf("line in texture == line[0] = %s\n", line[0]);
-		// printf("line in texture == line[1] = %s\n", line[1]);
-		// printf("line in texture == line[2] = %s\n", line[2]);
+		line = ft_split_textures(texture);
+		printf("line in texture == line[0] = %s\n", line[0]);
+		printf("line in texture == line[1] = %s\n", line[1]);
+		printf("line in texture == line[2] = %s\n", line[2]);
 		if (len_tab(line) != 2)
 		{
 			printf("ERROR\n");

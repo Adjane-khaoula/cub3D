@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/03/09 18:13:46 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/03/09 19:38:59 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		len_tab(char **tab_identifier);
 int		ft_isum(int c);
 void	remove_space(char **line);
 int		is_whitespace(char c);
+char	**ft_split_textures(char const *s/*, char c*/);
 # endif
 
 

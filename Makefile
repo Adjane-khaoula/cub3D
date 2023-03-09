@@ -6,7 +6,7 @@
 #    By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 16:38:04 by kadjane           #+#    #+#              #
-#    Updated: 2023/02/27 14:52:31 by kadjane          ###   ########.fr        #
+#    Updated: 2023/03/09 19:39:29 by kadjane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 SRCS = parser_textures.c main.c get_next_line.c \
 	get_next_line_utils.c ft_split.c ft_strcmp.c\
-	ft_atoi.c parser_map.c
+	ft_atoi.c parser_map.c ft_split_textures.c
 
 OBJ_D = obj
 
