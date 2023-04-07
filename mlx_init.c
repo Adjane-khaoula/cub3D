@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 13:20:33 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/05 13:58:52 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/07 14:32:47 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	set_mlx_data(t_data *data)
 	data->mlx_data->mlx_win = mlx_new_window(data->mlx_data->mlx,
 			data->mlx_data->window_width,
 			data->mlx_data->window_hight, "Cub3D");
-	data->mlx_data->block_x = 40;
-	data->mlx_data->block_y = 40;
+	data->mlx_data->block_x = 50;
+	data->mlx_data->block_y = 50;
 	init_player_data(data);
 	init_walls_data(data);
 	init_key_state(data);

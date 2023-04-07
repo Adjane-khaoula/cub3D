@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+         #
+#    By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 16:38:04 by kadjane           #+#    #+#              #
-#    Updated: 2023/04/05 15:25:49 by hasabir          ###   ########.fr        #
+#    Updated: 2023/04/07 15:29:39 by kadjane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = parser_textures.c parser_textures_2.c main.c get_next_line.c \
 	mlx_init.c map_data.c draw_map_2D.c mlx_hooks.c\
 	move_player.c draw_line.c ray_casting.c ray_casting_utils.c\
 	mlx_hooks_utils.c init_textures.c randring_wall.c \
-	move_player_utils.c
+	move_player_utils.c color.c mlx_hook_utils_2.c
 
 OBJ_D = obj
 

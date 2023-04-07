@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/05 22:04:39 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/07 15:29:25 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 enum e_colors
 {
 	RED = 0x00FF0000,
-	GREEN = 0x0000FF00,
+	GREEN = 0x006600,
 	BLUE = 0x000000FF,
 	BLACK = 0x000000,
 	WIGHT = 0xFFFFFF,
-	YELLOW = 0xFFFF00,
+	YELLOW = 0xFFFFCC,
 };
 
 enum e_movement
@@ -69,6 +69,8 @@ typedef struct s_key
 	int	east;
 	int	trigonometric_rotation;
 	int	clockwise_rotation;
+	int	m_trigonometric_rotation;
+	int	m_clockwise_rotation;
 }	t_key;
 
 typedef struct s_mlx
@@ -102,16 +104,16 @@ typedef struct s_ray_coordinates
 
 typedef struct s_coordinate
 {
-	long double		x1;
-	long double		y1;
-	long double		x2;
-	long double		y2;
-	int				ex;
-	int				ey;
-	int				dx;
-	int				dy;
-	int				px;
-	int				py;
+	long double	x1;
+	long double	y1;
+	long double	x2;
+	long double	y2;
+	long double	ex;
+	long double	ey;
+	long double	dx;
+	long double	dy;
+	long double	px;
+	long double	py;
 }	t_coordinate;
 
 typedef struct s_color
@@ -142,7 +144,8 @@ typedef struct s_wall
 typedef struct s_data
 {
 	int					fd;
-	int					fd_2;
+	int					nbr;
+	int					itr;
 	int					other_whitespace;
 	char				**line;
 	char				**identifier;
@@ -175,7 +178,7 @@ int				len_tab(char **tab_identifier);
 int				ft_isum(int c);
 int				is_whitespace(char c);
 char			**ft_split(char const *s, char c);
-char			**ft_split_textures(char *s);
+char			**ft_split_textures(char *s, t_data *data);
 void			remove_space_in_the_end(char **line);
 void			ft_error(char *error);
 void			check_whitespace(t_data *data,
@@ -221,11 +224,13 @@ int				destroy_window_x(void);
 int				key_hook_destroy(int key, t_mlx *mlx_data);
 int				loop_hook(t_data *data);
 int				loop_hook(t_data *mlx_data);
+int				mouse_hook(int mouse_button, int x, int y, t_data *data);
+int				mouse_release(int mouse_button, int x, int y, t_data *data);
 
 /*************************** mlx_hook_utils.c ********************************/
 
-int				move_hook(t_data *data);
-void			speed_control(int key, t_data *data);
+void			move_hook(t_data *data);
+void			speed_control(int key, t_data *data, int mouse_button);
 int				destroy_window_x(void);
 void			init_key_state(t_data *data);
 

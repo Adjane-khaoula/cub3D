@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:56:07 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/05 22:04:22 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/07 15:01:47 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_data_2(t_data *data)
 {
 	data->color = malloc(sizeof(t_color));
 	if (!data->color)
-		ft_error("error in the allocation\n");
+		ft_error("ERROR\n");
 	data->color->c_blue = 0;
 	data->color->c_ceiling = 0;
 	data->color->c_floor = 0;
@@ -27,6 +27,8 @@ void	init_data_2(t_data *data)
 	data->color->f_red = 0;
 	data->color->rgb_floor = NULL;
 	data->color->rgb_ceiling = NULL;
+	data->itr = -1;
+	data->nbr = 0;
 }
 
 void	init_data(t_data *data, char **av)
@@ -39,11 +41,11 @@ void	init_data(t_data *data, char **av)
 	(data)->map = malloc(sizeof(char *));
 	(data)->textures = malloc(sizeof(char *) * 7);
 	(data)->fd = open(av[1], O_RDONLY);
-	if (data->fd < 0 || !check_file_name(av[1], "cub"))
-		ft_error("file not exist\n");
+	if (data->fd < 0 || !check_file_name(av[1], ".cub"))
+		ft_error("ERROR\n");
 	if (!data->line || !(data)->textures
 		|| !data->map)
-		ft_error("error in the allocation\n");
+		ft_error("ERROR\n");
 	init_data_2(data);
 }
 
@@ -76,15 +78,16 @@ void	ft_free(char **tab)
 
 int	check_file_name(char *file_name, char *extention)
 {
-	char	**split_name;
+	char	ext[5];
+	int		len;
+	int		i;
 
-	split_name = ft_split(file_name, '.');
-	if (len_tab(split_name) != 2
-		|| (len_tab(split_name) == 2 && ft_strcmp(split_name[1], extention)))
-	{
-		ft_free(split_name);
+	i = 4;
+	len = ft_strlen(file_name);
+	while (--i >= 0)
+		ext[i] = file_name[--len];
+	ext[4] = '\0';
+	if (ft_strcmp(ext, extention))
 		return (0);
-	}
-	ft_free(split_name);
 	return (1);
 }

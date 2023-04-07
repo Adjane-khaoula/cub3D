@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_textures_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:23:12 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/02 03:45:38 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/07 15:15:59 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**check_dup(char **tab_identifier, char *identifier)
 		while (tab_identifier[++i])
 		{
 			if (!ft_strcmp(tab_identifier[i], identifier))
-				ft_error("duplicate texture\n");
+				ft_error("ERROR\n");
 		}
 		if (!tab_identifier[i])
 			tab_identifier = add_identifier(tab_identifier, identifier);
@@ -67,16 +67,17 @@ char	**check_dup(char **tab_identifier, char *identifier)
 	return (tab_identifier);
 }
 
-void	check_range_rgb(char **tab_rgb)
+void	check_nbr_rgb(char *rgb)
 {
 	int	i;
 
-	i = -1;
-	while (tab_rgb[++i])
-	{
-		if (ft_atoi(tab_rgb[i]) < 0 || ft_atoi(tab_rgb[i]) > 255)
-			ft_error("rang not correct\n");
-	}
+	i = 0;
+	while (rgb && rgb[i] && !is_whitespace(rgb[i]))
+		i++;
+	while (rgb && rgb[i] && is_whitespace(rgb[i]))
+		i++;
+	if (rgb && rgb[i] && rgb[i] != '\n')
+		ft_error("ERROR\n");
 }
 
 void	check_ceiling_floor(char **line, t_data *data)
@@ -92,9 +93,10 @@ void	check_ceiling_floor(char **line, t_data *data)
 		if (line[1][i] == ',')
 			j++;
 	}
+	check_nbr_rgb(line[1]);
 	tab_rgb = ft_split(line[1], ',');
 	if (len_tab(tab_rgb) != 3 || j != 2)
-		ft_error("number of rgb not correct\n");
+		ft_error("ERROR\n");
 	else
 		check_range_rgb(tab_rgb);
 	i = -1;

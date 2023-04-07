@@ -6,7 +6,7 @@
 /*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:02:31 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/05 14:30:00 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/07 11:23:55 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	first_case(t_data *data, int xi, int yi)
 	while (i <= data->coordinate.px)
 	{
 		my_pixel_put(data->mlx_data, x1 * data->factor_x,
-			y1 * data->factor_y, RED);
+			y1 * data->factor_y, YELLOW);
 		i++;
 		x1 += xi;
 		data->coordinate.ex -= data->coordinate.dy;
@@ -60,7 +60,7 @@ void	second_case(t_data *data, int xi, int yi)
 	while (i <= data->coordinate.py)
 	{
 		my_pixel_put(data->mlx_data, x1 * data->factor_x,
-			y1 * data->factor_y, RED);
+			y1 * data->factor_y, YELLOW);
 		i++;
 		y1 += yi;
 		data->coordinate.ey -= data->coordinate.dx;

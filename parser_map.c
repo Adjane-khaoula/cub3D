@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:49:15 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/05 22:05:56 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/07 15:13:05 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_map(int *i, char **map)
 		}
 	}
 	if (nbr_player != 1)
-		ft_error("Number player not correct\n");
+		ft_error("ERROR\n");
 }
 
 void	parse_map(char **map)

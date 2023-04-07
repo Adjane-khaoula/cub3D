@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:43:13 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/05 22:15:49 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/07 14:32:50 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rendering_wall_3(t_data *data, int offset_x, int offset_y, int i)
 	while (data->walls->start < data->walls->end)
 	{
 		offset_y = (data->walls->start - start)
-			* (float)(40 / data->walls->height_wall);
+			* (float)(50 / data->walls->height_wall);
 		if (data->ray.flag_h_v
 			&& data->coordinate.y1 < data->coordinate.y2)
 			my_pixel_put(data->mlx_data, i, data->walls->start++,
@@ -52,9 +52,9 @@ void	rendering_wall_2(int i, t_data *data)
 	while (++j < data->walls->start)
 		my_pixel_put(data->mlx_data, i, j, data->color->c_ceiling);
 	if (data->ray.flag_h_v)
-		offset_x = (int)data->ray.x2_horizontal % 40;
+		offset_x = (int)data->ray.x2_horizontal % 50;
 	else
-		offset_x = (int)data->ray.y2_vertical % 40;
+		offset_x = (int)data->ray.y2_vertical % 50;
 	rendering_wall_3(data, offset_x, offset_y, i);
 	while (data->walls->end < data->walls->height)
 		my_pixel_put(data->mlx_data, i,
@@ -65,7 +65,7 @@ void	rendering_wall(long double ray_distance, t_data *data)
 {
 	static int	i = -1;
 
-	data->walls->height_2_d = 40;
+	data->walls->height_2_d = 50;
 	data->walls->width = data->mlx_data->window_width;
 	data->walls->height = data->mlx_data->window_hight;
 	if (i == data->walls->width - 1)

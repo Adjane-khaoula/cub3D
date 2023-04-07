@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:10:05 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/05 15:04:13 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/07 14:32:51 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void	find_direction(t_data *data, long double *angle)
 
 void	find_first_x_intersection(t_data *data, long double angle)
 {
-	data->ray.y2_horizontal = floor(data->coordinate.y1 / 40) * 40;
+	data->ray.y2_horizontal = floor(data->coordinate.y1 / 50) * 50;
 	if (data->ray.direction_y == 1)
-		data->ray.y2_horizontal += 40;
+		data->ray.y2_horizontal += 50;
 	data->ray.x2_horizontal = data->coordinate.x1
 		+ ((data->coordinate.y1 - data->ray.y2_horizontal) / tan(angle));
 }
 
 void	find_first_y_intersection(t_data *data, long double angle)
 {
-	data->ray.x2_vertical = floorl(data->coordinate.x1 / 40) * 40;
+	data->ray.x2_vertical = floorl(data->coordinate.x1 / 50) * 50;
 	if (data->ray.direction_x == 1)
-		data->ray.x2_vertical += 40;
+		data->ray.x2_vertical += 50;
 	data->ray.y2_vertical = data->coordinate.y1
 		- (data->ray.x2_vertical - data->coordinate.x1) * tan(angle);
 }
@@ -51,19 +51,19 @@ long double	find_horizontal_intersection(t_data *data, long double angle)
 	long double	step_y;
 
 	find_first_x_intersection(data, angle);
-	step_x = 40 / tan(angle);
+	step_x = 50 / tan(angle);
 	if ((data->ray.direction_x == 1 && step_x < 0)
 		|| (data->ray.direction_x == -1 && step_x > 0))
 		step_x *= -1;
-	step_y = 40 * data->ray.direction_y;
+	step_y = 50 * data->ray.direction_y;
 	if (data->ray.direction_y == -1)
 		data->ray.y2_horizontal--;
 	while (data->ray.x2_horizontal >= 0
-		&& data->ray.x2_horizontal < data->mlx_data->size_x * 40
+		&& data->ray.x2_horizontal < data->mlx_data->size_x * 50
 		&& data->ray.y2_horizontal >= 0
-		&& data->ray.y2_horizontal < data->mlx_data->size_y * 40
-		&& data->map[(int)(data->ray.y2_horizontal / 40)]
-		[(int)(data->ray.x2_horizontal / 40)] != '1')
+		&& data->ray.y2_horizontal < data->mlx_data->size_y * 50
+		&& data->map[(int)(data->ray.y2_horizontal / 50)]
+		[(int)(data->ray.x2_horizontal / 50)] != '1')
 	{
 			data->ray.x2_horizontal += step_x;
 			data->ray.y2_horizontal += step_y;
@@ -80,19 +80,19 @@ long double	find_vertical_intersection(t_data *data, long double angle)
 	long double	step_y;
 
 	find_first_y_intersection(data, angle);
-	step_y = 40 * tan(angle);
+	step_y = 50 * tan(angle);
 	if ((data->ray.direction_y == -1 && step_y > 0)
 		|| (data->ray.direction_y == 1 && step_y < 0))
 		step_y *= -1;
-	step_x = 40 * data->ray.direction_x;
+	step_x = 50 * data->ray.direction_x;
 	if (data->ray.direction_x == -1)
 		data->ray.x2_vertical--;
 	while (data->ray.x2_vertical >= 0
-		&& data->ray.x2_vertical < data->mlx_data->size_x * 40
+		&& data->ray.x2_vertical < data->mlx_data->size_x * 50
 		&& data->ray.y2_vertical >= 0
-		&& data->ray.y2_vertical < data->mlx_data->size_y * 40
-		&& data->map[(int)(data->ray.y2_vertical / 40)]
-		[(int)(data->ray.x2_vertical / 40)] != '1')
+		&& data->ray.y2_vertical < data->mlx_data->size_y * 50
+		&& data->map[(int)(data->ray.y2_vertical / 50)]
+		[(int)(data->ray.x2_vertical / 50)] != '1')
 	{
 		data->ray.x2_vertical += step_x;
 		data->ray.y2_vertical += step_y;

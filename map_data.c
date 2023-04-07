@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:41:39 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/02 06:00:25 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/07 14:32:46 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void	get_player_position(t_data *data)
 		if (data->player.direction)
 			break ;
 	}
-	data->player.player_y = 40 * y;
-	data->player.player_x = 40 * x;
+	data->player.player_y = 50 * y;
+	data->player.player_x = 50 * x;
 }
