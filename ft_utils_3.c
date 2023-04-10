@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:56:07 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:01:47 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:30 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	init_data_2(t_data *data)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 00:10:05 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:51 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:49 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	find_direction(t_data *data, long double *angle)
 {

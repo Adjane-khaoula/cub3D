@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 13:20:33 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:47 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:45:14 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	init_player_data(t_data *data)
 {
@@ -18,14 +18,14 @@ void	init_player_data(t_data *data)
 	data->coordinate.x1 = data->player.player_x;
 	data->coordinate.y1 = data->player.player_y;
 	data->player.speed = 5;
-	data->player.rotation_speed = 5;
+	data->player.rotation_speed = 10;
 	if (data->player.direction == 'N')
 		data->player.angle = M_PI / 2;
 	if (data->player.direction == 'S')
 		data->player.angle = 3 * M_PI / 2;
-	if (data->player.direction == 'W')
-		data->player.angle = M_PI;
 	if (data->player.direction == 'E')
+		data->player.angle = M_PI;
+	if (data->player.direction == 'W')
 		data->player.angle = M_PI * 2;
 }
 
@@ -48,6 +48,9 @@ void	set_mlx_data(t_data *data)
 	data->mlx_data = malloc(sizeof(t_mlx));
 	if (!data->mlx_data)
 		exit(EXIT_FAILURE);
+	data->mlx_data->img = malloc(sizeof(t_img));
+	if (!data->mlx_data->img)
+		exit(EXIT_FAILURE);
 	data->mlx_data->mlx = mlx_init();
 	data->player.player_x = 0;
 	data->player.player_y = 0;
@@ -67,9 +70,6 @@ void	set_mlx_data(t_data *data)
 
 void	init_image(t_data *data)
 {
-	data->mlx_data->img = malloc(sizeof(t_img));
-	if (!data->mlx_data->img)
-		exit(EXIT_FAILURE);
 	data->mlx_data->img->mlx_img = mlx_new_image(data->mlx_data->mlx,
 			data->mlx_data->window_width, data->mlx_data->window_hight);
 	data->mlx_data->img->img_addr = mlx_get_data_addr(

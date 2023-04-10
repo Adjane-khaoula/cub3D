@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 14:48:46 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/06 01:16:18 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:02:58 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 int	ft_strlen(char *str)
 {
@@ -81,7 +81,10 @@ void	check_whitespace(t_data *data, int *other_whitespace, char **tmp)
 				other_whitespace++;
 			(*tmp)++;
 		}
-		if (*(*tmp)++ == '\n')
+		if (*(*tmp) == '\n')
+		{
 			other_whitespace = 0;
+			(*tmp)++;
+		}
 	}
 }

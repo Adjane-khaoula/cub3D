@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_data.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:41:39 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:46 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:18:51 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 int	get_size_x(char **map)
 {
@@ -65,6 +65,6 @@ void	get_player_position(t_data *data)
 		if (data->player.direction)
 			break ;
 	}
-	data->player.player_y = 50 * y;
-	data->player.player_x = 50 * x;
+	data->player.player_y = 50 * y + 25;
+	data->player.player_x = 50 * x + 25;
 }

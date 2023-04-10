@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_textures.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:29:34 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 13:29:30 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:53:30 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"parser.h"
+#include "cub.h"
 
 int	nbr_word(char const *s)
 {
@@ -49,7 +49,9 @@ void	full_str(int *i, t_data *data, char *s, char **tab_str)
 {
 	int	j;
 	int	len;
+	int	flag;
 
+	flag = 0;
 	if (s && s[data->itr])
 	{
 		len = len_word(&(s[data->itr]), data->nbr);
@@ -63,7 +65,7 @@ void	full_str(int *i, t_data *data, char *s, char **tab_str)
 		while (s && s[data->itr] && s[data->itr] != '\n' && data->nbr)
 			tab_str[*i][++j] = s[(data->itr)++];
 		tab_str[*i][++j] = '\0';
-		remove_space_in_the_end(&tab_str[*i]);
+		remove_space_in_the_end(&tab_str[*i], flag);
 	}
 }
 

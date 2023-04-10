@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 03:25:28 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 15:21:38 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:04:49 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	rotate(t_data *data)
 {
@@ -42,6 +42,7 @@ void	move_hook(t_data *data)
 		if (data->mlx_data->key_state.north)
 			move_player(data, NORTH);
 		rotate(data);
+		mlx_destroy_image(data->mlx_data->mlx, data->mlx_data->img->mlx_img);
 		mlx_clear_window(data->mlx_data->mlx, data->mlx_data->mlx_win);
 		draw_map(data);
 	}

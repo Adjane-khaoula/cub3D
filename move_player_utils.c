@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move_player_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:23:53 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:48 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:41 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	move_u_d(t_data *data, double player_x, double player_y, int direction)
 {

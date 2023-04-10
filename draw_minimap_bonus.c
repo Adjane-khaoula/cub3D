@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map_2D.c                                      :+:      :+:    :+:   */
+/*   draw_minimap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 15:08:03 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/07 12:36:22 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:13:21 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub_bonus.h"
 
-void	draw_player(t_data *data, int *x)
+void	draw_player(t_data *data, long double *x)
 {
-	int			step;
+	long double	step;
+	long double	i;
+	long double	j;
 
+	i = data->coordinate.x1 - 5;
+	while (i < data->coordinate.x1 + 5)
+	{
+		j = data->coordinate.y1 - 5;
+		while (j < data->coordinate.y1 + 5)
+		{
+			my_pixel_put(data->mlx_data, i * data->factor_x,
+				j * data->factor_y, RED);
+			j++;
+		}
+		i++;
+	}
 	step = *x + data->mlx_data->block_x;
 	while (*x < step)
 		(*x)++;
 }
 
-void	draw_wall(t_data *data, int *x, int step_y)
+void	draw_wall(t_data *data, long double *x, long double step_y)
 {
-	int	step_x;
-	int	y;
+	long double	step_x;
+	long double	y;
 
 	step_x = *x + data->mlx_data->block_x;
 	while (*x < step_x)
@@ -33,27 +47,26 @@ void	draw_wall(t_data *data, int *x, int step_y)
 		while (y < step_y)
 		{
 			my_pixel_put(data->mlx_data, *x * data->factor_x,
-				y * data->factor_y, GREEN);
+				y * data->factor_y, RED);
 			y++;
 		}
 		(*x)++;
 	}
 }
 
-void	skip(t_data *data, int *x)
+void	skip(t_data *data, long double *x)
 {
-	int	step;
+	long double	step;
 
-	(void)data;
 	step = *x + data->mlx_data->block_x;
 	while (*x < step)
 		(*x)++;
 }
 
-void	draw_block(t_data *data, int line, int step_y)
+void	draw_block(t_data *data, int line, long double step_y)
 {
-	int	x;
-	int	colon;
+	long double	x;
+	int			colon;
 
 	x = 0;
 	colon = 0;
@@ -75,13 +88,13 @@ void	draw_block(t_data *data, int line, int step_y)
 
 void	draw_map(t_data *data)
 {
-	int	step_y;
-	int	line;
+	long double	step_y;
+	int			line;
 
 	init_image(data);
-	cast_rays(data, 1);
-	data->factor_x = 750 / data->mlx_data->window_width ;
-	data->factor_y = 200 / data->mlx_data->window_hight;
+	cast_rays(data);
+	data->factor_x = 750 / data->mlx_data->size_x / 50 ;
+	data->factor_y = 200 / data->mlx_data->size_y / 50;
 	line = 0;
 	step_y = data->mlx_data->block_y;
 	while (line < data->mlx_data->size_y)
@@ -90,7 +103,8 @@ void	draw_map(t_data *data)
 		line++;
 		step_y += data->mlx_data->block_y;
 	}
-	cast_rays(data, 0);
+	cast_ray(data, data->player.angle);
+	line_draw(data);
 	mlx_put_image_to_window(data->mlx_data->mlx,
 		data->mlx_data->mlx_win, data->mlx_data->img->mlx_img, 0, 0);
 }

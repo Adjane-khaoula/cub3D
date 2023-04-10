@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:53:22 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/05 11:44:19 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:49 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 long double	cast_ray(t_data *data, long double angle)
 {
@@ -33,7 +33,7 @@ long double	cast_ray(t_data *data, long double angle)
 	return (vertical_distance);
 }
 
-void	cast_rays(t_data *data, int flag)
+void	cast_rays(t_data *data)
 {
 	long double	angle;
 	long double	distance;
@@ -49,10 +49,7 @@ void	cast_rays(t_data *data, int flag)
 	{
 		distance = cast_ray(data, angle);
 		distance *= cos(angle - data->player.angle);
-		if (flag)
-			rendering_wall(distance, data);
-		else
-			line_draw(data);
+		rendering_wall(distance, data);
 		angle += fov / nbr_rays;
 	}
 }

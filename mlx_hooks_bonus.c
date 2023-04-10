@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hook_utils_2.c                                 :+:      :+:    :+:   */
+/*   mlx_hooks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:27:37 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:31:19 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 10:34:41 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub_bonus.h"
 
 int	mouse_hook(int mouse_button, int x, int y, t_data *data)
 {

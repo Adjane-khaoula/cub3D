@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:28 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/08 12:13:59 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:14:45 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
-
-void	draw_map(t_data *data)
-{
-	init_image(data);
-	cast_rays(data);
-	mlx_put_image_to_window(data->mlx_data->mlx,
-		data->mlx_data->mlx_win, data->mlx_data->img->mlx_img, 0, 0);
-}
+#include "cub_bonus.h"
 
 int	loop_hook(t_data *data)
 {
+	mlx_hook(data->mlx_data->mlx_win, 4, 4, mouse_hook, data);
+	mlx_hook(data->mlx_data->mlx_win, 5, 8, mouse_release, data);
 	mlx_hook(data->mlx_data->mlx_win, 2, 1, key_hook, data);
 	mlx_hook(data->mlx_data->mlx_win, 3, 2, key_release, data);
 	mlx_hook(data->mlx_data->mlx_win, 17, 0, destroy_window_x, data);

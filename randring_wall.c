@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:43:13 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:50 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 11:05:23 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	rendering_wall_3(t_data *data, int offset_x, int offset_y, int i)
 {
@@ -33,11 +33,11 @@ void	rendering_wall_3(t_data *data, int offset_x, int offset_y, int i)
 		else if (!data->ray.flag_h_v
 			&& data->coordinate.x1 >= data->coordinate.x2)
 			my_pixel_put(data->mlx_data, i, data->walls->start++,
-				get_color(data, offset_x, offset_y, WEST));
+				get_color(data, offset_x, offset_y, EAST));
 		else if (!data->ray.flag_h_v
 			&& data->coordinate.x1 < data->coordinate.x2)
 			my_pixel_put(data->mlx_data, i, data->walls->start++,
-				get_color(data, offset_x, offset_y, EAST));
+				get_color(data, offset_x, offset_y, WEST));
 	}
 }
 

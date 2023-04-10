@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 06:59:46 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:08:09 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:35 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	*get_data_addr(t_img *image)
 {

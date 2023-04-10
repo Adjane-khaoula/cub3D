@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:29:05 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:18:24 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:18:11 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 char	**split_texture(char *textures, t_data *data)
 {

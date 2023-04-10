@@ -6,11 +6,11 @@
 /*   By: hasabir <hasabir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:14:10 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/05 15:29:56 by hasabir          ###   ########.fr       */
+/*   Updated: 2023/04/08 09:57:42 by hasabir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	rotate_player(t_data *data, int direction)
 {

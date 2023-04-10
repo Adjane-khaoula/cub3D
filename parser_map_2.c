@@ -6,11 +6,25 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 17:52:03 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:12:29 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:17:18 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
+
+int	check_end_map(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (*data->line && (*data->line)[i] && is_whitespace((*data->line)[i]))
+		i++;
+	if (*data->line && (*data->line)[i] && (*data->line)[i] != '\n')
+		ft_error("ERROR\n");
+	else if (*data->line && (*data->line)[i] && (*data->line)[i] == '\n')
+		return (1);
+	return (0);
+}
 
 int	valid_char(char c)
 {

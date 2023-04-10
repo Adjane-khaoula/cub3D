@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 15:29:25 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:12:13 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef CUB_H
+# define CUB_H
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -25,9 +25,9 @@
 
 enum e_colors
 {
-	RED = 0x00FF0000,
+	RED = 0x660033,
 	GREEN = 0x006600,
-	BLUE = 0x000000FF,
+	BLUE = 0x3399FF,
 	BLACK = 0x000000,
 	WIGHT = 0xFFFFFF,
 	YELLOW = 0xFFFFCC,
@@ -112,8 +112,6 @@ typedef struct s_coordinate
 	long double	ey;
 	long double	dx;
 	long double	dy;
-	long double	px;
-	long double	py;
 }	t_coordinate;
 
 typedef struct s_color
@@ -179,7 +177,7 @@ int				ft_isum(int c);
 int				is_whitespace(char c);
 char			**ft_split(char const *s, char c);
 char			**ft_split_textures(char *s, t_data *data);
-void			remove_space_in_the_end(char **line);
+void			remove_space_in_the_end(char **line, int flag);
 void			ft_error(char *error);
 void			check_whitespace(t_data *data,
 					int *other_whitespace, char **tmp);
@@ -201,6 +199,11 @@ void			init_textures(t_data *data);
 unsigned int	get_color(t_data *data, int offset_x, int offset_y, int flag);
 void			rendering_wall(long double ray_distance, t_data *data);
 int				check_file_name(char *file_name, char *extention);
+int				check_end_map(t_data *data);
+void			check_end(char **map, int *i);
+int				ft_end_stock_textures(t_data *data, char *tmp, int *j);
+void			ft_textures(t_data *data);
+void			ft_map(t_data *data);
 
 /**************************** mlx_init.c ************************************/
 
@@ -214,18 +217,12 @@ int				get_size_y(char **map);
 int				get_size_x(char **map);
 void			get_player_position(t_data *data);
 
-/**************************** draw_map_2D.c *********************************/
-
-void			draw_map(t_data *data);
-
 /**************************** mlx_hook.c *************************************/
 
 int				destroy_window_x(void);
 int				key_hook_destroy(int key, t_mlx *mlx_data);
-int				loop_hook(t_data *data);
-int				loop_hook(t_data *mlx_data);
-int				mouse_hook(int mouse_button, int x, int y, t_data *data);
-int				mouse_release(int mouse_button, int x, int y, t_data *data);
+int				key_hook(int key, t_data *data);
+int				key_release(int key, t_data *data);
 
 /*************************** mlx_hook_utils.c ********************************/
 
@@ -246,11 +243,13 @@ void			move_w_e(t_data *data, double player_x,
 
 /**************************** draw_line.c ************************************/
 
-int				line_draw(t_data *data);
+int				loop_hook(t_data *data);
+void			draw_map(t_data *data);
 
 /**************************** ray_casting.c **********************************/
 
-void			cast_rays(t_data *data, int flag);
+void			cast_rays(t_data *data);
+long double		cast_ray(t_data *data, long double angle);
 
 /**************************** ray_casting_utils *****************************/
 
@@ -259,5 +258,4 @@ void			find_first_x_intersection(t_data *data, long double angle);
 void			find_first_y_intersection(t_data *data, long double angle);
 long double		find_horizontal_intersection(t_data *data, long double angle);
 long double		find_vertical_intersection(t_data *data, long double angle);
-
 #endif

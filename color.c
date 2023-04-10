@@ -6,11 +6,11 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:29:53 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/07 14:32:44 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/08 12:16:26 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub.h"
 
 void	check_range_rgb(char **tab_rgb)
 {
