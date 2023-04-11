@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:31:57 by kadjane           #+#    #+#             */
-/*   Updated: 2023/04/08 12:12:13 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/11 09:43:45 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,7 @@ typedef struct s_wall
 	long double	height_2_d;
 	long double	dist_3_d;
 	long double	height_wall;
-	long double	width;
-	long double	height;
+
 	long double	start;
 	long double	end;
 }	t_wall;
@@ -167,7 +166,6 @@ char			*get_next_line(int fd);
 char			*ft_strjoin(char *line, char *buff);
 char			*ft_strdup(char *src);
 int				ft_strlen(char *str);
-char			**ft_split(char const *s, char c);
 int				ft_strcmp(char *s1, char *s2);
 void			parse_texture(t_data **data);
 void			parse_map(char **map);
@@ -179,8 +177,7 @@ char			**ft_split(char const *s, char c);
 char			**ft_split_textures(char *s, t_data *data);
 void			remove_space_in_the_end(char **line, int flag);
 void			ft_error(char *error);
-void			check_whitespace(t_data *data,
-					int *other_whitespace, char **tmp);
+void			check_whitespace(t_data *data, char **tmp);
 int				valid_char(char c);
 void			check_first_char(char *line);
 void			check_first_last_line(char *line);

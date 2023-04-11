@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 13:20:33 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/08 11:45:14 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/11 09:49:28 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	init_walls_data(t_data *data)
 	data->walls->height_2_d = 0;
 	data->walls->dist_3_d = 0;
 	data->walls->height_wall = 0;
-	data->walls->width = 0;
-	data->walls->height = 0;
 	data->walls->start = 0;
 	data->walls->end = 0;
 }

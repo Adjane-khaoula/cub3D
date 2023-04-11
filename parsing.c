@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:42:35 by hasabir           #+#    #+#             */
-/*   Updated: 2023/04/10 11:32:53 by kadjane          ###   ########.fr       */
+/*   Updated: 2023/04/11 09:42:36 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_textures(t_data *data)
 		(*data->line) = get_next_line(data->fd);
 		if (!*data->line)
 			ft_error("ERROR\n");
-		check_whitespace(data, &(data->other_whitespace), &tmp);
+		check_whitespace(data, &tmp);
 		if (ft_strcmp(*(data->line), "\n") && *tmp && !ft_isum(*tmp) && j < 7)
 		{
 			parse_texture(&data);
